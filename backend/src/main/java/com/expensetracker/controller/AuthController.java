@@ -24,6 +24,12 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    @GetMapping("/home")
+    public ResponseEntity<String> print(){
+        System.out.println("We are on the authHome page");
+        return ResponseEntity.ok("Welcome to the Auth Home Page!");
+    }
+
     @PostMapping("/register")
     @Operation(summary = "Register new user", description = "Creates a new user profile in the system with encrypted password storage.")
     @ApiResponses(value = {
