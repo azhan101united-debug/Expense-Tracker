@@ -73,6 +73,9 @@ public class AuthServiceImpl implements AuthService {
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         User user = userRepository.findByEmail(userDetails.getUsername()).get();
+
+        refreshTokenService.deleteByUserId(user.getId()); 
+        
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getId());
 
         return new JwtResponse(jwt, refreshToken.getToken(), "Bearer", user.getId(), user.getName(), user.getEmail());

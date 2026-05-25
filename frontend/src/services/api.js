@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://bookish-halibut-6vg9xwj9j7p62597x-8080.app.github.dev/api',
 });
 
 api.interceptors.request.use((config) => {
@@ -26,7 +26,7 @@ api.interceptors.response.use(
         if (!refreshToken) throw new Error('No refresh token found');
         
         // Use a clean axios instance to avoid interceptor loops
-        const { data } = await axios.post('http://localhost:8080/api/auth/refresh-token', { refreshToken });
+        const { data } = await axios.post('https://bookish-halibut-6vg9xwj9j7p62597x-8080.app.github.dev/api/auth/refresh-token', { refreshToken });
 
         const newToken = data.accessToken;
         const newRefreshToken = data.refreshToken;

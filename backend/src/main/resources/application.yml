@@ -19,8 +19,10 @@ spring:
 
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
+      host: upcycled-festooned-able-80641.db.redis.io
+      port: 17931
+      password: XU6V2VVaiUFENLNU6VLgLsSojeLW7AYO
+      username: default
     
   mail:
     host: smtp.gmail.com
@@ -35,7 +37,7 @@ spring:
             enable: true
 
   cache:
-    type: none
+    type: redis
     redis:
       time-to-live: 600000
 
